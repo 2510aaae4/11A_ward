@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>醫療資訊查詢系統</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <style>
+        body { padding-top: 50px; }
+        .form-group { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">醫療資訊查詢系統</h1>
+        <form action="/scrape" method="post">
+            <div class="form-group">
+                <label for="username">使用者名稱：</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">密碼：</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="main_doctors">選擇主要醫師：</label>
+                <select class="form-control" id="main_doctors" name="main_doctors" multiple>
+                    <option value="林威宏">林威宏</option>
+                    <option value="周昀澤">周昀澤</option>
+                    <option value="張力常">張力常</option>
+                    <option value="梁祐誠">梁祐誠</option>
+                    <option value="吳忠泰">吳忠泰</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">查詢</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#main_doctors').select2({
+                placeholder: "請選擇主要醫師",
+                allowClear: true
+            });
+        });
+    </script>
+</body>
+</html>
